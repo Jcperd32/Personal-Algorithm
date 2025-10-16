@@ -5,7 +5,11 @@ function typeWriter(text, elementId, speed = 50) {
     
     function type() {
         if (i < text.length) {
-            element.innerHTML += text.charAt(i);
+            if (text.charAt(i) === '\n') {
+                element.innerHTML += '<br>';
+            } else {
+                element.innerHTML += text.charAt(i);
+            }
             i++;
             setTimeout(type, speed);
         } else {
