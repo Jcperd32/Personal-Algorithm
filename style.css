@@ -73,6 +73,20 @@ body::before {
     max-width: 500px;
 }
 
+.content-section {
+    display: none;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-section.active {
+    display: flex;
+}
+
+
 .riddle-text::after {
     content: '|';
     animation: blink 0.7s infinite;
