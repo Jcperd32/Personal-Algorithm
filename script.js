@@ -42,9 +42,31 @@ function continueToNext() {
 }
 
 const friendsDatabase = {
-    "alex": "Remember that time we talked about the stars?",
-    "sarah": "Still thinking about our coffee conversation.",
-};
+    "erick": "No esperaba que lo uses la verdad jaja",
+    "karla": "It's giving pregnant",
+    "kayra": "I owe you guys a drink, don't let me forget",
+    "brayan": "Idk if I wanted family to use it but welcome to it",
+    "kevin": "Idk if I wanted family to use it but welcome to it",
+    "anthony": "Idk if I wanted family to use it but welcome to it",
+    "jenny": "Idk if I wanted family to use it but welcome to it",
+    "paola": "Idk if I wanted family to use it but welcome to it",
+    "katherine": "Idk if I wanted family to use it but welcome to it",
+    "david": "Idk if I wanted family to use it but welcome to it",
+    "danny": "What are you doing here? We haven't spoken since highschool, we should catch up",
+    "omar": "Need that recipe for the green sauce",
+    "christina": "You didn't seem like the type to read much lol jk"
+    "andrew": `Hi...
+
+    I wasn't expecting you. If you're here, then that means...
+    
+    I've truly lost it, haven't I? Strange, I don't know what to say. It's unlikely you'd find this place, yet somehow... you always found your way through the cracks in my mind.
+    
+    I carry the weight of what I couldn't do. What I should have done. You deserved so much more than what the world gave you. I was furious – at them, at myself, at my cowardice.
+    
+    You've read deeper into these shadows than most. Maybe you'd understand the architecture of this grief.
+    
+    I'm sorry. For everything left unsaid.`
+    };
 
 function checkEnter(event) {
     if (event.key === 'Enter') {
@@ -58,21 +80,15 @@ function checkName() {
     
     if (friendsDatabase[nameInput]) {
         messageDiv.textContent = friendsDatabase[nameInput];
-        messageDiv.classList.add('show');
-        
-        setTimeout(() => {
-            document.getElementById('name-section').classList.remove('active');
-            document.getElementById('question-section').classList.add('active');
-            showQuestion();
-        }, 3000);
     } else {
-        messageDiv.textContent = "Welcome, new friend. Let's see how you're doing.";
-        messageDiv.classList.add('show');
-        
-        setTimeout(() => {
-            document.getElementById('name-section').classList.remove('active');
-            document.getElementById('question-section').classList.add('active');
-            showQuestion();
-        }, 3000);
+        messageDiv.textContent = "Umm... seems I don't have you here yet, which means I either didn't get to you yet, or we haven't made any memories yet. But come along, everyone is welcome here.";
     }
+    
+    messageDiv.classList.add('show');
+    
+    setTimeout(() => {
+        document.getElementById('name-section').classList.remove('active');
+        document.getElementById('question-section').classList.add('active');
+        showQuestion();
+    }, 3000);
 }
