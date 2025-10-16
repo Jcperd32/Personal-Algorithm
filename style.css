@@ -147,3 +147,66 @@ body::before {
 .personal-message.show {
     display: block;
 }
+
+.question-box {
+    background: rgba(245, 230, 211, 0.95);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    max-width: 600px;
+    position: relative;
+    z-index: 10;
+}
+
+.intro-text {
+    color: #5D4037;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.question-text {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #3E2723;
+    margin: 30px 0;
+    min-height: 60px;
+}
+
+.scale-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.scale-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #8D4E24;
+    background: #F5E6D3;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.scale-btn:hover {
+    background: #8D4E24;
+    color: #F5E6D3;
+    transform: scale(1.1);
+}
+
+.scale-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #6D3E1F;
+    font-size: 14px;
+    font-style: italic;
+    margin: 0 50px;
+}
+
+.progress {
+    margin-top: 40px;
+    color: #8D4E24;
+}
