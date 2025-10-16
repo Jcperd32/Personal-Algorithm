@@ -38,4 +38,41 @@ window.onload = function() {
 
 function continueToNext() {
     document.getElementById('welcome-section').classList.remove('active');
+    document.getElementById('name-section').classList.add('active');
+}
+
+const friendsDatabase = {
+    "alex": "Remember that time we talked about the stars?",
+    "sarah": "Still thinking about our coffee conversation.",
+};
+
+function checkEnter(event) {
+    if (event.key === 'Enter') {
+        checkName();
+    }
+}
+
+function checkName() {
+    const nameInput = document.getElementById('name-input').value.toLowerCase().trim();
+    const messageDiv = document.getElementById('personal-message');
+    
+    if (friendsDatabase[nameInput]) {
+        messageDiv.textContent = friendsDatabase[nameInput];
+        messageDiv.classList.add('show');
+        
+        setTimeout(() => {
+            document.getElementById('name-section').classList.remove('active');
+            document.getElementById('question-section').classList.add('active');
+            showQuestion();
+        }, 3000);
+    } else {
+        messageDiv.textContent = "Welcome, new friend. Let's see how you're doing.";
+        messageDiv.classList.add('show');
+        
+        setTimeout(() => {
+            document.getElementById('name-section').classList.remove('active');
+            document.getElementById('question-section').classList.add('active');
+            showQuestion();
+        }, 3000);
+    }
 }
