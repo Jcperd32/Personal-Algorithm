@@ -78,6 +78,11 @@ function checkName() {
     const nameInput = document.getElementById('name-input').value.toLowerCase().trim();
     const messageDiv = document.getElementById('personal-message');
     
+    const existingBtn = messageDiv.querySelector('button');
+    if (existingBtn) {
+        existingBtn.remove();
+    }
+    
     if (nameInput === 'andrew') {
         if (!document.getElementById('crack')) {
             const crackDiv = document.createElement('div');
@@ -89,7 +94,6 @@ function checkName() {
         document.getElementById('crack').style.display = 'block';
         document.body.classList.add('screen-break');
         
-      
         messageDiv.innerHTML = ''; 
         messageDiv.classList.add('show');
         
@@ -105,31 +109,83 @@ function checkName() {
             
             I'm sorry. For everything left unsaid.`;
         
-        typeWriter(andrewMessage, 'personal-message', 80); 
-        
-        setTimeout(() => {
-            document.getElementById('name-section').classList.remove('active');
-            document.getElementById('question-section').classList.add('active');
-            showQuestion();
-        }, 25000); 
+        typeWriterWithContinue(andrewMessage, 'personal-message', 80, () => {
+            const continueBtn = document.createElement('button');
+            continueBtn.textContent = 'Continue to Questions';
+            continueBtn.style.marginTop = '20px';
+            continueBtn.style.padding = '10px 20px';
+            continueBtn.style.background = '#8D4E24';
+            continueBtn.style.color = '#F5E6D3';
+            continueBtn.style.border = 'none';
+            continueBtn.style.borderRadius = '5px';
+            continueBtn.style.cursor = 'pointer';
+            continueBtn.onclick = function() {
+                document.getElementById('name-section').classList.remove('active');
+                document.getElementById('question-section').classList.add('active');
+                showQuestion();
+            };
+            messageDiv.appendChild(continueBtn);
+        });
         
     } else if (friendsDatabase[nameInput]) {
         messageDiv.textContent = friendsDatabase[nameInput];
         messageDiv.classList.add('show');
         
-        setTimeout(() => {
+        const continueBtn = document.createElement('button');
+        continueBtn.textContent = 'Continue to Questions';
+        continueBtn.style.marginTop = '20px';
+        continueBtn.style.padding = '10px 20px';
+        continueBtn.style.background = '#8D4E24';
+        continueBtn.style.color = '#F5E6D3';
+        continueBtn.style.border = 'none';
+        continueBtn.style.borderRadius = '5px';
+        continueBtn.style.cursor = 'pointer';
+        continueBtn.onclick = function() {
             document.getElementById('name-section').classList.remove('active');
             document.getElementById('question-section').classList.add('active');
             showQuestion();
-        }, 3000);
+        };
+        messageDiv.appendChild(continueBtn);
+        
     } else {
         messageDiv.textContent = "Umm... seems I don't have you here yet, which means I either didn't get to you yet, or we haven't made any memories yet. But come along, everyone is welcome here.";
         messageDiv.classList.add('show');
         
-        setTimeout(() => {
+        const continueBtn = document.createElement('button');
+        continueBtn.textContent = 'Continue to Questions';
+        continueBtn.style.marginTop = '20px';
+        continueBtn.style.padding = '10px 20px';
+        continueBtn.style.background = '#8D4E24';
+        continueBtn.style.color = '#F5E6D3';
+        continueBtn.style.border = 'none';
+        continueBtn.style.borderRadius = '5px';
+        continueBtn.style.cursor = 'pointer';
+        continueBtn.onclick = function() {
             document.getElementById('name-section').classList.remove('active');
             document.getElementById('question-section').classList.add('active');
             showQuestion();
-        }, 3000);
+        };
+        messageDiv.appendChild(continueBtn);
     }
+}
+
+function typeWriterWithContinue(text, elementId, speed = 50, onComplete) {
+    let i = 0;
+    const element = document.getElementById(elementId);
+    element.innerHTML = ''; 
+    
+    function type() {
+        if (i < text.length) {
+            if (text.charAt(i) === '\n') {
+                element.innerHTML += '<br>';
+            } else {
+                element.innerHTML += text.charAt(i);
+            }
+            i++;
+            setTimeout(type, speed);
+        } else {
+            if (onComplete) onComplete();
+        }
+    }
+    type();
 }
