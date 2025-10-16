@@ -299,28 +299,209 @@ function selectAnswer(score) {
 
 function showResults() {
     const totalScore = userScores.reduce((sum, score) => sum + score, 0);
-    const maxScore = questions.length * 5;
-    const percentage = (totalScore / maxScore) * 100;
     
-    let message = "";https://github.com/Jcperd32/Personal-Algorithm/tree/main
-    if (percentage >= 80) {
+    let message = "";
+    let storyKey = "";
+    
+    // 8 different ranges covering 10-50 points
+    if (totalScore >= 45) {
         message = "Your quiet seems to be your own, your faces familiar in the mirror. The patterns you see are ones you chose to draw.";
-    } else if (percentage >= 60) {
+        storyKey = "content_45_50";
+    } else if (totalScore >= 40) {
+        message = "Most silences are comfortable, most masks feel like choices rather than necessities. You recognize yourself in the reflection.";
+        storyKey = "content_40_44";
+    } else if (totalScore >= 35) {
         message = "Some silences are heavier than others, some masks still wait in pockets. But more often than not, you recognize the hand in the mirror.";
-    } else if (percentage >= 40) {
+        storyKey = "content_35_39";
+    } else if (totalScore >= 30) {
+        message = "The performances happen less often, the borrowed thoughts feel more like temporary guests than permanent residents.";
+        storyKey = "content_30_34";
+    } else if (totalScore >= 25) {
         message = "The ghosts speak loudly sometimes, the performances feel necessary. But between the borrowed thoughts, your own voice still finds its way through.";
+        storyKey = "content_25_29";
+    } else if (totalScore >= 20) {
+        message = "The weight of expectations feels heavy, the echoes of old conversations fill much of the space. But there are moments of clear air.";
+        storyKey = "content_20_24";
+    } else if (totalScore >= 15) {
+        message = "The masks feel permanent, the silences overwhelming. The patterns seem drawn by hands you don't recognize.";
+        storyKey = "content_15_19";
     } else {
         message = "The weight of other people's expectations, the echoes of old conversations—they leave little room for anything else. But even heavy quiet eventually breaks for morning.";
+        storyKey = "content_10_14";
     }
     
     document.getElementById('question-section').innerHTML = `
         <div class="question-box">
             <h2>The Reflection Complete</h2>
             <div class="intro-text">${message}</div>
-            <div class="progress">Final score: ${totalScore} out of ${maxScore}</div>
+            <div class="progress">Your score: ${totalScore} out of 50</div>
+            <button id="view-story-btn" onclick="showStory('${storyKey}')" 
+                    style="margin-top: 30px; padding: 12px 30px; background: #8D4E24; color: #F5E6D3; border: none; border-radius: 5px; cursor: pointer;">
+                Continue to Your Story
+            </button>
+        </div>
+    `;
+}
+
+function showStory(storyKey) {
+    const stories = {
+        "content_10_14": {
+            story: "Your story for scores 10-14 goes here...",
+            quote: "The quote that helped you during this time"
+        },
+        "content_15_19": {
+            story: "Your story for scores 15-19 goes here...",
+            quote: "The quote that helped you during this time"
+        },
+        "content_20_24": {
+            story: "Your story for scores 20-24 goes here...",
+            quote: "The quote that helped you during this time"
+        },
+        "content_20_24": {
+        story: `<h3 style="text-align: center; color: #5D4037; margin-bottom: 30px;">The Bench at the Center of the World</h3>
+                
+                <p>The best bench on the 14th Street platform is the one right in the middle. It's not the most comfortable, but it's the only one where you can feel the wind from both directions, a preview of the uptown and downtown 6 trains before they even arrive. I got here a little later than usual today. The guy at the bodega was fighting with his second toaster, so the line for the one working one was snaking past the cold drinks. I almost gave up on my cinnamon raisin bagel, but I'd already paid, so I waited. By the time it was toasted, slathered with peanut butter and jelly, and wrapped in that thin paper, the 8:05 express was long gone. It's fine. The early trains are always too crowded anyway.</p>
+    
+                <p>I settled onto my bench. First things first: Wordle. I got it in four today. The first guess is always a prayer, the second a process of elimination. By the third, you're either hopeful or resigned. Today, I was hopeful. A good omen, maybe.</p>
+    
+                <p>The platform filled around me. A river of suits and backpacks. A kid in a dinosaur backpack stared at me until his mother pulled him along. I opened my chess app. I'm working my way through a bot named "Nelson," set to a difficulty that lets me feel clever about half the time. I made a move, captured a pawn, and then looked up.</p>
+    
+                <p>A flock of fashion students descended, all black clothes and dramatic silhouettes, talking loudly about some designer I'd never heard of. They were a living exhibit. On the opposite bench, a man with kind eyes and a worn-out satchel was grading papers, his red pen moving in quick, decisive slashes. I wondered what story he was failing. A tourist asked me for directions to the High Line, and I pointed them toward the stairs, my voice sounding raspy from disuse.</p>
+    
+                <p>By midday, the rhythm changed. The frantic energy of being late was replaced by the purpose of lunch breaks and errands. I switched to a sudoku book, the kind with the cheap paper that smudges. The numbers were a quiet comfort. The fruit vendor, an older woman with a permanent, tired smile, nodded at me. I bought a cup of mango and some fruits. It's cheaper than the delis and keeps the hunger at bay. Down on the tracks, a large, glossy rat emerged from a shadow and dragged a forgotten piece of a breakfast sandwich back into the darkness. A small, brutal victory.</p>
+    
+                <p>In the afternoon, I started my book. Before the Coffee Gets Cold. A novel about a café where you can time travel, but you have to finish your coffee before it gets cold or you're stuck. It's a book about regrets and second chances. I read a chapter, then watched the people living out their own versions. A woman clutching a single yellow flower, her eyes scanning every opening door. A first date. Her hope was a physical thing, bright and fragile.</p>
+    
+                <p>As evening set in, the station lights flickered on, casting a harsh, honest glow. The crowd softened. People were going home now. Ties were loosened, comfortable shoes replaced heels. The woman with the flower was gone. I hoped it went well for her.</p>
+    
+                <p>I closed my book. The last of the long-distance trains were due. This is when I pay the most attention. My phone was dead, my sudoku book filled, the story finished. There was nothing left to do but wait. Really wait.</p>
+    
+                <p>I watched the downtown local pull in. The doors hissed open. A few people got off. A man with a guitar case. A group of friends laughing. A woman struggling with two large grocery bags.</p>
+    
+                <p>No one else.</p>
+    
+                <p>The doors closed with a final, rubbery thud. The train pulled away, its red lights disappearing into the tunnel's mouth. The station felt vast and suddenly very quiet. The attendant who mops the floors gave me a small, familiar nod as he started his rounds. He's seen me here enough to know the routine.</p>
+    
+                <p>I stood up, my knees protesting. It's okay. There's always tomorrow. The trains will run again. The promise was someday, and someday is a date that never appears on a schedule, which means it could be any day. It could be tomorrow.</p>
+    
+                <p>I turned my collar up against the chill and walked out toward the stairs. The city above was settling into its night sounds. Somewhere out there, his train is still coming. I'm sure of it. Tomorrow, I'll be back on that bench. Tomorrow, the doors will open, and he'll be there, smiling that same smile, and he'll say he's finally home.</p>
+            `,
+            quote: "The promise was someday, and someday is a date that never appears on a schedule, which means it could be any day."
+        },
+        "content_30_34": {
+            story: "Your story for scores 30-34 goes here...",
+            quote: "The quote that helped you during this time"
+        },
+        "content_35_39": {
+            story: "Your story for scores 35-39 goes here...",
+            quote: "The quote that helped you during this time"
+        },
+        "content_40_44": {
+            story: "Your story for scores 40-44 goes here...",
+            quote: "The quote that helped you during this time"
+        },
+        "content_45_50": {
+            story: "Your story for scores 45-50 goes here...",
+            quote: "The quote that helped you during this time"
+        }
+    };
+    
+    const content = stories[storyKey];
+    
+    document.getElementById('question-section').innerHTML = `
+        <div class="question-box">
+            <h2>A Story From This Place</h2>
+            <div class="story-content" style="text-align: left; line-height: 1.6; margin: 30px 0;">
+                ${content.story}
+            </div>
+            <div class="quote" style="font-style: italic; color: #5D4037; margin: 40px 0; padding: 20px; border-left: 3px solid #8D4E24;">
+                "${content.quote}"
+            </div>
+            <button onclick="showVisitorLog()" 
+                    style="padding: 12px 30px; background: #8D4E24; color: #F5E6D3; border: none; border-radius: 5px; cursor: pointer;">
+                Continue to Visitor's Log
+            </button>
+        </div>
+    `;
+}
+
+function showVisitorLog() {
+    document.getElementById('question-section').innerHTML = `
+        <div class="question-box">
+            <h2>Visitor's Log</h2>
+            <p class="intro-text">Leave your mark before you go</p>
+            
+            <div style="margin: 30px 0;">
+                <input type="text" id="visitor-name" placeholder="Your name (optional)" 
+                       style="width: 80%; padding: 12px; margin: 10px 0; border: 2px solid #8D4E24; border-radius: 5px; background: #F5E6D3;">
+                <textarea id="visitor-message" placeholder="Your thoughts, feedback, or anything you'd like to leave here..." 
+                          style="width: 80%; height: 120px; padding: 12px; margin: 10px 0; border: 2px solid #8D4E24; border-radius: 5px; background: #F5E6D3; font-family: Georgia, serif;"></textarea>
+            </div>
+            
+            <button onclick="submitVisitorLog()" 
+                    style="padding: 12px 30px; background: #8D4E24; color: #F5E6D3; border: none; border-radius: 5px; cursor: pointer; margin-right: 15px;">
+                Submit
+            </button>
+            <button onclick="skipVisitorLog()" 
+                    style="padding: 12px 30px; background: transparent; color: #8D4E24; border: 2px solid #8D4E24; border-radius: 5px; cursor: pointer;">
+                Skip
+            </button>
+        </div>
+    `;
+}
+
+function submitVisitorLog() {
+    const name = document.getElementById('visitor-name').value.trim();
+    const message = document.getElementById('visitor-message').value.trim();
+
+    console.log('Visitor Log:', { name, message });
+    
+    showFinalMessage();
+}
+
+function skipVisitorLog() {
+    showFinalMessage();
+}
+
+function showFinalMessage() {
+    document.getElementById('question-section').innerHTML = `
+        <div class="question-box">
+            <h2>Thank You</h2>
+            <div class="intro-text">
+                Your presence here has been noted in the quiet archives of this digital space.
+            </div>
             <p style="margin-top: 30px; font-style: italic; color: #5D4037;">
-                Thank you for trusting me with these quiet answers.
+                The museum remains open, should you wish to return.
             </p>
         </div>
     `;
+}
+
+async function submitVisitorLog() {
+    const name = document.getElementById('visitor-name').value.trim() || 'Anonymous';
+    const message = document.getElementById('visitor-message').value.trim();
+    
+    const visitorData = {
+        name: name,
+        message: message,
+        score: userScores.reduce((a,b)=>a+b,0),
+        timestamp: new Date().toISOString()
+    };
+    
+    try {
+        const response = await fetch('https://api.jsonbin.io/v3/b/YOUR_BIN_ID', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': '$2a$10$YOUR_API_KEY_HERE'
+            },
+            body: JSON.stringify(visitorData)
+        });
+        
+        console.log('Data saved:', await response.json());
+    } catch (error) {
+        console.log('Could not save, but continuing...');
+    }
+    
+    showFinalMessage();
 }
