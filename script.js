@@ -450,14 +450,6 @@ function showVisitorLog() {
     `;
 }
 
-function submitVisitorLog() {
-    const name = document.getElementById('visitor-name').value.trim();
-    const message = document.getElementById('visitor-message').value.trim();
-
-    console.log('Visitor Log:', { name, message });
-    
-    showFinalMessage();
-}
 
 function skipVisitorLog() {
     showFinalMessage();
