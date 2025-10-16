@@ -74,16 +74,15 @@ body::before {
 }
 
 .content-section {
-    display: none;
     position: relative;
     min-height: 100vh;
-    display: flex;
+    display: none;  /* Keep only this display property */
     justify-content: center;
     align-items: center;
 }
 
 .content-section.active {
-    display: flex;
+    display: flex;  /* This will now properly show active sections */
 }
 
 
