@@ -78,17 +78,58 @@ function checkName() {
     const nameInput = document.getElementById('name-input').value.toLowerCase().trim();
     const messageDiv = document.getElementById('personal-message');
     
-    if (friendsDatabase[nameInput]) {
+    if (nameInput === 'andrew') {
+        if (!document.getElementById('crack')) {
+            const crackDiv = document.createElement('div');
+            crackDiv.className = 'crack-overlay';
+            crackDiv.id = 'crack';
+            document.body.appendChild(crackDiv);
+        }
+        
+        document.getElementById('crack').style.display = 'block';
+        document.body.classList.add('screen-break');
+        
+      
+        messageDiv.innerHTML = ''; 
+        messageDiv.classList.add('show');
+        
+        const andrewMessage = `Hi...
+
+            I wasn't expecting you. If you're here, then that means...
+            
+            I've truly lost it, haven't I? Strange, I don't know what to say. It's unlikely you'd find this place, yet somehow... you always found your way through the cracks in my mind.
+            
+            I carry the weight of what I couldn't do. What I should have done. You deserved so much more than what the world gave you. I was furious – at them, at myself, at my cowardice.
+            
+            You've read deeper into these shadows than most. Maybe you'd understand the architecture of this grief.
+            
+            I'm sorry. For everything left unsaid.`;
+        
+        typeWriter(andrewMessage, 'personal-message', 80); 
+        
+        setTimeout(() => {
+            document.getElementById('name-section').classList.remove('active');
+            document.getElementById('question-section').classList.add('active');
+            showQuestion();
+        }, 25000); 
+        
+    } else if (friendsDatabase[nameInput]) {
         messageDiv.textContent = friendsDatabase[nameInput];
+        messageDiv.classList.add('show');
+        
+        setTimeout(() => {
+            document.getElementById('name-section').classList.remove('active');
+            document.getElementById('question-section').classList.add('active');
+            showQuestion();
+        }, 3000);
     } else {
         messageDiv.textContent = "Umm... seems I don't have you here yet, which means I either didn't get to you yet, or we haven't made any memories yet. But come along, everyone is welcome here.";
+        messageDiv.classList.add('show');
+        
+        setTimeout(() => {
+            document.getElementById('name-section').classList.remove('active');
+            document.getElementById('question-section').classList.add('active');
+            showQuestion();
+        }, 3000);
     }
-    
-    messageDiv.classList.add('show');
-    
-    setTimeout(() => {
-        document.getElementById('name-section').classList.remove('active');
-        document.getElementById('question-section').classList.add('active');
-        showQuestion();
-    }, 3000);
 }
