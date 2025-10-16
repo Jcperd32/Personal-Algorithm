@@ -54,7 +54,7 @@ const friendsDatabase = {
     "david": "Idk if I wanted family to use it but welcome to it",
     "danny": "What are you doing here? We haven't spoken since highschool, we should catch up",
     "omar": "Need that recipe for the green sauce",
-    "christina": "You didn't seem like the type to read much lol jk"
+    "christina": "You didn't seem like the type to read much lol jk",
     "andrew": `Hi...
 
     I wasn't expecting you. If you're here, then that means...
