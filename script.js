@@ -354,10 +354,6 @@ function showStory(storyKey) {
             quote: "The quote that helped you during this time"
         },
         "content_20_24": {
-            story: "Your story for scores 20-24 goes here...",
-            quote: "The quote that helped you during this time"
-        },
-        "content_20_24": {
         story: `<h3 style="text-align: center; color: #5D4037; margin-bottom: 30px;">The Bench at the Center of the World</h3>
                 
                 <p>The best bench on the 14th Street platform is the one right in the middle. It's not the most comfortable, but it's the only one where you can feel the wind from both directions, a preview of the uptown and downtown 6 trains before they even arrive. I got here a little later than usual today. The guy at the bodega was fighting with his second toaster, so the line for the one working one was snaking past the cold drinks. I almost gave up on my cinnamon raisin bagel, but I'd already paid, so I waited. By the time it was toasted, slathered with peanut butter and jelly, and wrapped in that thin paper, the 8:05 express was long gone. It's fine. The early trains are always too crowded anyway.</p>
@@ -473,4 +469,18 @@ function submitVisitorLog() {
     
     alert('Thank you for your message. It has been saved.');
     showFinalMessage();
+}
+
+function showFinalMessage() {
+    document.getElementById('question-section').innerHTML = `
+        <div class="question-box">
+            <h2>Thank You</h2>
+            <div class="intro-text">
+                Your presence here has been noted in the quiet archives of this digital space.
+            </div>
+            <p style="margin-top: 30px; font-style: italic; color: #5D4037;">
+                The museum remains open, should you wish to return.
+            </p>
+        </div>
+    `;
 }
