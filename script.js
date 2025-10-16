@@ -456,18 +456,15 @@ function submitVisitorLog() {
     const message = document.getElementById('visitor-message').value.trim();
     const score = userScores.reduce((a,b)=>a+b,0);
     
-    const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLScAh1j_RhsYwHOb1JodfrCZlnLtqA1KYxggLXLUl7LVmDJiLQ/formResponse?usp=pp_url&entry.2098137895=${encodeURIComponent(name)}&entry.1434420300=${encodeURIComponent(message)}&entry.1136583426=${score}`;
+    console.log('=== VISITOR LOG ===');
+    console.log('Name:', name);
+    console.log('Message:', message);
+    console.log('Score:', score);
+    console.log('Timestamp:', new Date().toLocaleString());
+    console.log('==================');
     
-    fetch(formUrl, {
-        method: 'GET',
-        mode: 'no-cors'
-    }).then(() => {
-        console.log('Form submitted successfully');
-    }).catch(() => {
-        console.log('Form submission attempted');
-    });
+    alert(`Thank you, ${name}! Your message has been recorded.`);
     
-    alert('Thank you for your message. It has been saved.');
     showFinalMessage();
 }
 
