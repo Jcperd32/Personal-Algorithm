@@ -346,7 +346,33 @@ function showResults() {
 function showStory(storyKey) {
     const stories = {
         "content_10_14": {
-            story: "Your story for scores 10-14 goes here...",
+            story: `<h3 style="text-align: center; color: #5D4037; margin-bottom: 30px;">What Was Left in the Fridge</h3>
+                
+                <p>There was a time when his world was warm. When the smell of warm food met him at the door, and his mother would be there, tired from work but always with a smile. They drank hot chocolate with too many marshmallows, the steam fogging up the cold windowpanes. She taught him to play chess on a board with two missing pawns they replaced with bottle caps. At night, they read together. They traveled to places they knew were not real, to planets with little princes and forests where wild things rumpused, and they did not care. They dreamed of seeing the ocean and of building a house with a sliding ladder in the library. They had a list of these dreams taped to the fridge.</p>
+                
+                <p>Her voice was the soundtrack to it all. And then, one day, it was the only part he had left.</p>
+                
+                <p>She was working late, as always. The voicemail she left that afternoon was still on his phone.</p>
+                
+                <p>"Hey, my love. Just got to work, gonna be a bit late tonight. Left you some pasta in the fridge, just warm it up. Do not forget your project is due tomorrow! We have that new chapter to read tonight, I am excited. I love you. Have a good day."</p>
+                
+                <p>She never came home. A hit and run, the police said. They never found who did it.</p>
+                
+                <p>At her funeral, a few distant relatives shuffled in. They did not look at him. They looked at her few things, her small television, her simple jewelry, and found nothing of value. No one offered him a home. The only person who stood with him was Leo, a quiet boy from his class who did not say a word, just stood there until it was over.</p>
+                
+                <p>The small checks from the father who had left them for another family stopped coming. He was evicted from their apartment. He finished high school living on couches, in temporary rooms, his life packed into a single backpack. Leo's family would sometimes feed him. He was always hungry, but the hunger in his chest was louder than the one in his stomach. The only thing that filled it was the sound of her voice. He listened to the message every night. He saved it on an old hard drive. It was the most important thing he owned.</p>
+                
+                <p>In a final, desperate act, he tried to find out what happened to her. He called the police station, looked at old news reports. He found nothing. He was just a kid chasing a ghost.</p>
+                
+                <p>One evening, walking home from the library, thinking of her, of the cold case file, he stepped off the curb without looking. It was quick. The city took him the same way it took her suddenly, and without any meaning.</p>
+                
+                <p>Leo's parents were left to clean out his single room. They found the old phone and the hard drive. Taped to it was a note that said, "For Leo. Please save this. It is my mom."</p>
+                
+                <p>Leo's father looked at the old technology. He shrugged. "It is junk, son. The kid was clinging to ghosts."</p>
+                
+                <p>He took the phone and the hard drive to a pawn shop. The man behind the counter offered him ten dollars for the lot. Leo's father took the money.</p>
+                
+                <p>The phone was placed in a bin with other broken devices. Later that week, it was wiped clean, its memory scoured back to zero, ready to be sold for parts. The last recording of her voice, the pasta in the fridge, the promise of a new chapter, the "I love you" all of it was gone. The silence that followed was the same silence that had been waiting for him all along.</p>`,
             quote: "The quote that helped you during this time"
         },
         "content_15_19": {
