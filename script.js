@@ -190,3 +190,137 @@ function typeWriterWithContinue(text, elementId, speed = 50, onComplete) {
     }
     type();
 }
+
+const questions = [
+    {
+        question: "When you wake tomorrow, what kind of silence will greet you?",
+        subtext: "The one that feels like peace, or the one that feels like waiting?",
+        leftLabel: "Heavy quiet",
+        rightLabel: "Gentle stillness"
+    },
+    {
+        question: "How many versions of yourself do you carry in your pockets?",
+        subtext: "The person for work, for family, for strangers—do they feel like costumes or layers of the same skin?",
+        leftLabel: "Many masks",
+        rightLabel: "One face"
+    },
+    {
+        question: "When was the last time a memory surprised you by how much it still hurt?",
+        subtext: "Not the big tragedies, but the small moments that shouldn't matter anymore",
+        leftLabel: "Recently",
+        rightLabel: "Long ago"
+    },
+    {
+        question: "How much of your kindness comes from genuine warmth versus learned obligation?",
+        subtext: "The difference between giving because you want to, and giving because you should",
+        leftLabel: "Mostly duty",
+        rightLabel: "Mostly heart"
+    },
+    {
+        question: "What percentage of your thoughts feel truly yours versus borrowed from others?",
+        subtext: "The opinions you adopted, the fears you inherited, the dreams someone else planted",
+        leftLabel: "Mostly borrowed",
+        rightLabel: "Mostly mine"
+    },
+    {
+        question: "How often do you find yourself performing happiness for an audience?",
+        subtext: "The smile that's more about their comfort than your actual feeling",
+        leftLabel: "Often",
+        rightLabel: "Rarely"
+    },
+    {
+        question: "When you're completely alone, what person emerges that others rarely see?",
+        subtext: "The unedited version without witnesses",
+        leftLabel: "Stranger to me",
+        rightLabel: "My true self"
+    },
+    {
+        question: "How many conversations do you have with people who aren't there anymore?",
+        subtext: "The arguments you replay, the things you wish you'd said",
+        leftLabel: "Many ghosts",
+        rightLabel: "Present moments"
+    },
+    {
+        question: "What's the ratio between the love you give and the love you allow yourself to receive?",
+        subtext: "The imbalance we rarely admit to ourselves",
+        leftLabel: "Give more",
+        rightLabel: "In balance"
+    },
+    {
+        question: "When you look at your life from a distance, what pattern emerges that you can't see up close?",
+        subtext: "The recurring theme you keep walking in circles around",
+        leftLabel: "Lost in details",
+        rightLabel: "Clear pattern"
+    }
+];
+
+
+let currentQuestion = 0;
+let userScores = [];
+
+function showQuestion() {
+    if (currentQuestion < questions.length) {
+        const q = questions[currentQuestion];
+        document.getElementById('current-question').innerHTML = `
+            <div class="main-question">${q.question}</div>
+            <div class="subtext">${q.subtext}</div>
+        `;
+        document.getElementById('question-number').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+        
+        document.getElementById('left-label').textContent = q.leftLabel;
+        document.getElementById('right-label').textContent = q.rightLabel;
+        
+        document.querySelectorAll('.scale-btn').forEach(btn => {
+            btn.style.background = '#F5E6D3';
+            btn.style.color = '#3E2723';
+        });
+    } else {
+        showResults();
+    }
+}
+
+function selectAnswer(score) {
+    userScores[currentQuestion] = score;
+
+    document.querySelectorAll('.scale-btn').forEach(btn => {
+        btn.style.background = '#F5E6D3';
+        btn.style.color = '#3E2723';
+    });
+    
+
+    event.target.style.background = '#8D4E24';
+    event.target.style.color = '#F5E6D3';
+    
+    setTimeout(() => {
+        currentQuestion++;
+        showQuestion();
+    }, 800);
+}
+
+function showResults() {
+    const totalScore = userScores.reduce((sum, score) => sum + score, 0);
+    const maxScore = questions.length * 5;
+    const percentage = (totalScore / maxScore) * 100;
+    
+    let message = "";https://github.com/Jcperd32/Personal-Algorithm/tree/main
+    if (percentage >= 80) {
+        message = "Your quiet seems to be your own, your faces familiar in the mirror. The patterns you see are ones you chose to draw.";
+    } else if (percentage >= 60) {
+        message = "Some silences are heavier than others, some masks still wait in pockets. But more often than not, you recognize the hand in the mirror.";
+    } else if (percentage >= 40) {
+        message = "The ghosts speak loudly sometimes, the performances feel necessary. But between the borrowed thoughts, your own voice still finds its way through.";
+    } else {
+        message = "The weight of other people's expectations, the echoes of old conversations—they leave little room for anything else. But even heavy quiet eventually breaks for morning.";
+    }
+    
+    document.getElementById('question-section').innerHTML = `
+        <div class="question-box">
+            <h2>The Reflection Complete</h2>
+            <div class="intro-text">${message}</div>
+            <div class="progress">Final score: ${totalScore} out of ${maxScore}</div>
+            <p style="margin-top: 30px; font-style: italic; color: #5D4037;">
+                Thank you for trusting me with these quiet answers.
+            </p>
+        </div>
+    `;
+}
