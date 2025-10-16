@@ -20,18 +20,19 @@ function typeWriter(text, elementId, speed = 50) {
 }
 
 window.onload = function() {
-    const riddleText = `Welcome to this project. This is a test style page, but don't worry you don't have to study. It is more about how you are feeling.
-    
-        It might seem a bit conceited on my part for thinking anything I write is worth reading, but I wasn't sure how to get any feedback honestly, and I was unsure if I was going to share this anyway. But here it is.
+    const riddleText = `Welcome...
+        You've found a quiet corner of the digital ether, a place where feelings linger like dust in sunlight.
+
+        This isn't a test of knowledge, but of presence. A momentary pause in the endless scroll.
         
-        Enter your name, just your first name. Whether I know you or not is fine, and make sure to leave some feedback at the end.
+        Share your name, if you will. Just the first one, the one that feels most like home.
         
-        Hopefully this riddle keeps you thinking for the rest of the time you are here:
+        And perhaps this small riddle will accompany you:
         
-        I'm a cache with no processor,
-        A library with no shelves.
-        I'm recalled but not forgotten,
-        And fragmented over time.
+        I have no weight, yet burden souls.
+        I have no voice, yet speak volumes.
+        I can be locked away, but never contained.
+        I'm measured in moments, but last a lifetime.
         What am I?`;
     typeWriter(riddleText, 'riddle-text', 60); 
 }
