@@ -1,3 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, 
+        #3E2723 0%, 
+        #4E342E 25%, 
+        #5D4037 50%, 
+        #4E342E 75%, 
+        #3E2723 100%);
+    background-attachment: fixed;
+    font-family: 'Georgia', serif;
+}
+
 body::before {
     content: '';
     position: fixed;
