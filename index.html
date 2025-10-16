@@ -29,6 +29,32 @@
     </div>
     </section>
 
+    <section id="question-section" class="content-section">
+    <div class="question-box">
+        <h2>How are you, really?</h2>
+        <p class="intro-text">Take your time. There's no rush here.</p>
+        
+        <div id="question-container">
+            <p class="question-text" id="current-question"></p>
+            <div class="scale-container">
+                <button class="scale-btn" onclick="selectAnswer(1)">1</button>
+                <button class="scale-btn" onclick="selectAnswer(2)">2</button>
+                <button class="scale-btn" onclick="selectAnswer(3)">3</button>
+                <button class="scale-btn" onclick="selectAnswer(4)">4</button>
+                <button class="scale-btn" onclick="selectAnswer(5)">5</button>
+            </div>
+            <div class="scale-labels">
+                <span id="left-label">Not at all</span>
+                <span id="right-label">Completely</span>
+            </div>
+        </div>
+        
+        <div class="progress">
+            <span id="question-number">Question 1 of 10</span>
+        </div>
+    </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
