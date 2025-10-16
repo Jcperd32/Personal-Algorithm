@@ -76,13 +76,13 @@ body::before {
 .content-section {
     position: relative;
     min-height: 100vh;
-    display: none;  /* Keep only this display property */
+    display: none; 
     justify-content: center;
     align-items: center;
 }
 
 .content-section.active {
-    display: flex;  /* This will now properly show active sections */
+    display: flex;
 }
 
 
@@ -172,6 +172,26 @@ body::before {
     color: #3E2723;
     margin: 30px 0;
     min-height: 60px;
+}
+
+.main-question {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #3E2723;
+    line-height: 1.4;
+}
+
+.subtext {
+    font-size: 16px;
+    font-style: italic;
+    color: #5D4037;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.question-text {
+    min-height: 120px; /* Increased for two lines */
 }
 
 .scale-container {
