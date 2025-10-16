@@ -17,7 +17,17 @@
         </div>
     </section>
 
-    <!-- for other sections -->
+    <section id="name-section" class="content-section">
+    <div class="name-box">
+        <h2>May I know your name?</h2>
+        <p class="subtitle">Just your first name</p>
+        
+        <input type="text" id="name-input" placeholder="Enter your first name..." onkeypress="checkEnter(event)">
+        <button onclick="checkName()">Continue</button>
+        
+        <div id="personal-message" class="personal-message"></div>
+    </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
