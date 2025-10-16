@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, 
+        #3E2723 0%, 
+        #4E342E 25%, 
+        #5D4037 50%, 
+        #4E342E 75%, 
+        #3E2723 100%);
+    background-attachment: fixed;
+    font-family: 'Georgia', serif;
+}
+
+.content-section {
+    display: none;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-section.active {
+    display: flex;
+}
+
+.riddle-box {
+    background: rgba(245, 230, 211, 0.95);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    max-width: 500px;
+}
