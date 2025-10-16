@@ -463,45 +463,22 @@ function skipVisitorLog() {
     showFinalMessage();
 }
 
-function showFinalMessage() {
-    document.getElementById('question-section').innerHTML = `
-        <div class="question-box">
-            <h2>Thank You</h2>
-            <div class="intro-text">
-                Your presence here has been noted in the quiet archives of this digital space.
-            </div>
-            <p style="margin-top: 30px; font-style: italic; color: #5D4037;">
-                The museum remains open, should you wish to return.
-            </p>
-        </div>
-    `;
-}
-
-async function submitVisitorLog() {
+function submitVisitorLog() {
     const name = document.getElementById('visitor-name').value.trim() || 'Anonymous';
     const message = document.getElementById('visitor-message').value.trim();
+    const score = userScores.reduce((a,b)=>a+b,0);
     
-    const visitorData = {
-        name: name,
-        message: message,
-        score: userScores.reduce((a,b)=>a+b,0),
-        timestamp: new Date().toISOString()
-    };
+    const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLScAh1j_RhsYwHOb1JodfrCZlnLtqA1KYxggLXLUl7LVmDJiLQ/formResponse?usp=pp_url&entry.2098137895=${encodeURIComponent(name)}&entry.1434420300=${encodeURIComponent(message)}&entry.1136583426=${score}`;
     
-    try {
-        const response = await fetch('https://api.jsonbin.io/v3/b/YOUR_BIN_ID', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Master-Key': '$2a$10$YOUR_API_KEY_HERE'
-            },
-            body: JSON.stringify(visitorData)
-        });
-        
-        console.log('Data saved:', await response.json());
-    } catch (error) {
-        console.log('Could not save, but continuing...');
-    }
+    fetch(formUrl, {
+        method: 'GET',
+        mode: 'no-cors'
+    }).then(() => {
+        console.log('Form submitted successfully');
+    }).catch(() => {
+        console.log('Form submission attempted');
+    });
     
+    alert('Thank you for your message. It has been saved.');
     showFinalMessage();
 }
