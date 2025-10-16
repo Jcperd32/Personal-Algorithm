@@ -111,3 +111,39 @@ body::before {
 #continue-btn:hover {
     background: #6D3E1F;
 }
+
+
+.name-box {
+    background: rgba(245, 230, 211, 0.95);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    max-width: 500px;
+    position: relative;
+    z-index: 10;
+}
+
+#name-input {
+    width: 80%;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #8D4E24;
+    border-radius: 5px;
+    background: #F5E6D3;
+    margin: 20px 0;
+}
+
+.personal-message {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(141, 78, 36, 0.1);
+    border-radius: 5px;
+    font-style: italic;
+    color: #5D4037;
+    display: none;
+}
+
+.personal-message.show {
+    display: block;
+}
